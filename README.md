@@ -33,7 +33,7 @@ Swift Version: 5
 macOS: 13.0 and above
 
 # Getting started
-1. Download/Clone the 3DMeshLiDAR project from the repository
+1. Download/Clone the 3DMeshLiDAR project to Documents Directory.
 https://github.com/Mahesh471/3DObjectMesh.git
 2. Find ObjectCapturingApp and Open the project file in Xcode.
 3. Run active scheme for iPhone app.
