@@ -32,9 +32,16 @@ func supportsObjectCapture() -> Bool {
     return supportsObjectReconstruction() && supportsRayTracing()
 }
 
+func getDocumentsDirectory() -> String {
+    let fileManager = FileManager.default
+    let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+    let documentsDirectory = paths[0]
+    return "\(documentsDirectory)".replacingOccurrences(of: "file://", with: "")
+}
+
 if #available(macOS 12.0, *) {
     Photogrammetry3DModel.main(
-        ["/Users/admin/Documents/POC/3DObjectMesh/Object/Object_Data", "/Users/admin/Documents/POC/3DObjectMesh/Object/Object.usdz", "-d", "medium", "-o", "sequential", "-f", "normal"])
+        ["\(getDocumentsDirectory())/3DObjectMesh/Object/Object_Data", "\(getDocumentsDirectory())/3DObjectMesh/Object/Object.usdz", "-d", "medium", "-o", "sequential", "-f", "normal"])
 } else {
     fatalError("Requires minimum macOS 12.0!")
 }
